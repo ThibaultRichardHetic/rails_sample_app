@@ -2,9 +2,11 @@
 <p>Find me in app/views/article/index.html.erb</p>
 <ul>
 <%- @articles.each do |article|%>
-<p><%= "#{article.id} - #{article.title}" %></p>
+<p><%= link_to "#{article.id} - #{article.title} - #{pluralize(article.comments.count, 'comment')}", article_path(article)%></p>
+
 <%- end %>
 <li></li>
 </ul>
 
-<%= will_paginate @articles %>
+
+
